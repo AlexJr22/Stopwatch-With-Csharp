@@ -45,6 +45,19 @@ namespace Stopwatch_With_Csharp.Controllers
             {
                 Option = 0;
             }
+
+            switch (Option)
+            {
+                case 1:
+                    CountDown.StartDefault();
+                    break;
+                case 2:
+                    CountDown.StartPerson();
+                    break;
+                default:
+                    System.Environment.Exit(0);
+                    break;
+            }
         }
     }
 }
