@@ -15,25 +15,30 @@ namespace Stopwatch_With_Csharp.Controllers
                 TimeSpan Diff = nextYear - now;
                 long totalSeconds = (long)Diff.TotalSeconds;
 
-                int Seconds = (int)totalSeconds % 60;
+                int RestSeconds = (int)totalSeconds % 60;
 
                 int Minutes = (int)totalSeconds / 60;
-                int ResMinutes = (int)(totalSeconds / 60) % 60;
+                int RestMinutes = Minutes % 60;
 
                 int Hours = (int)Minutes / 60;
-                int RestHours = (int)(Minutes / 60) % 24;
+                int RestHours = Hours % 24;
 
                 int Days = (int)Hours / 24;
 
-                Console.Clear();
-                Console.WriteLine("Ctrl + C para encerrar a aplicação!");
-                Console.WriteLine();
-                Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
-                Console.WriteLine($" D:{Days} H:{RestHours} M:{ResMinutes} S:{Seconds}");
-                Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
-
-                Thread.Sleep(1000);
+                HandleTimer(Days, RestHours, RestMinutes, RestSeconds);
             }
+        }
+
+        private static void HandleTimer(int days, int hours, int minutes, int secnds)
+        {
+            Console.Clear();
+            Console.WriteLine("Ctrl + C para encerrar a aplicação!");
+            Console.WriteLine();
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
+            Console.WriteLine($" D:{days} H:{hours} M:{minutes} S:{secnds}");
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
+
+            Thread.Sleep(1000);
         }
 
         public static void StartPerson()
