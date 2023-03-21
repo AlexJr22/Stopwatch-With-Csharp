@@ -4,6 +4,18 @@ namespace Stopwatch_With_Csharp.Controllers
 {
     public class CountDown
     {
+        private static void HandleTimer(int days, int hours, int minutes, int secnds)
+        {
+            Console.Clear();
+            Console.WriteLine("Ctrl + C para encerrar a aplicação!");
+            Console.WriteLine();
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
+            Console.WriteLine($" D:{days} H:{hours} M:{minutes} S:{secnds}");
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
+
+            Thread.Sleep(1000);
+        }
+
         private static void CalculateTime()
         {
             while (true)
@@ -57,18 +69,6 @@ namespace Stopwatch_With_Csharp.Controllers
             Console.Clear();
 
             CalculateTime();
-        }
-
-        private static void HandleTimer(int days, int hours, int minutes, int secnds)
-        {
-            Console.Clear();
-            Console.WriteLine("Ctrl + C para encerrar a aplicação!");
-            Console.WriteLine();
-            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
-            Console.WriteLine($" D:{days} H:{hours} M:{minutes} S:{secnds}");
-            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-");
-
-            Thread.Sleep(1000);
         }
 
         public static void StartPerson()
