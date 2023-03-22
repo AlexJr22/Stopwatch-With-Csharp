@@ -87,15 +87,39 @@ namespace Stopwatch_With_Csharp.Controllers
 
             Console.SetCursorPosition(2, 4);
             Console.Write("DIA: ");
-            short PersonDay = Convert.ToInt16(Console.ReadLine());
+            short PersonDay;
+            short PersonMonth;
+            short PersonYear;
+            try
+            {
+                PersonDay = Convert.ToInt16(Console.ReadLine());
+            }
+            catch
+            {
+                PersonDay = (short)DateTime.Now.Day;
+            }
 
             Console.SetCursorPosition(2, 5);
             Console.Write("MÊS: ");
-            short PersonMonth = Convert.ToInt16(Console.ReadLine());
+            try
+            {
+                PersonMonth = Convert.ToInt16(Console.ReadLine());
+            }
+            catch
+            {
+                PersonMonth = (short)DateTime.Now.Month;
+            }
 
             Console.SetCursorPosition(2, 6);
             Console.Write("ANO: ");
-            short PersonYear = Convert.ToInt16(Console.ReadLine());
+            try
+            {
+                PersonYear = Convert.ToInt16(Console.ReadLine());
+            }
+            catch
+            {
+                PersonYear = (short)DateTime.Now.Year;
+            }
 
             CalculateTimePerson(PersonDay, PersonMonth, PersonYear);
         }
