@@ -9,7 +9,7 @@
 
 ![App Home](assets/appHome.jpg)
 
-``OPÇÃO 1: Calcula a quanto tempo falta ate 1º de janeiro do proximo ano.``
+``OPÇÃO 1: Calcula a quanto tempo falta até 1º de janeiro do próximo ano.``
 
 ![Opção 1](assets/opcao1.jpg)
 
