@@ -24,7 +24,7 @@ namespace Stopwatch_With_Csharp.Controllers
                 DateTime nextYear = new DateTime((now.Year + 1), 01, 01);
 
                 TimeSpan Diff = nextYear - now;
-                long totalSeconds = (long)Diff.TotalSeconds;
+                int totalSeconds = (int)Diff.TotalSeconds;
 
                 int RestSeconds = (int)totalSeconds % 60;
 
@@ -48,7 +48,7 @@ namespace Stopwatch_With_Csharp.Controllers
                 DateTime nextYear = new DateTime(year, month, days);
 
                 TimeSpan Diff = nextYear - now;
-                long totalSeconds = (long)Diff.TotalSeconds;
+                int totalSeconds = (int)Diff.TotalSeconds;
 
                 int RestSeconds = (int)totalSeconds % 60;
 
@@ -103,18 +103,37 @@ namespace Stopwatch_With_Csharp.Controllers
         private static void CalculateTimePerson(int days, int month, int year)
         {
             Console.Clear();
+
             if (year < DateTime.Now.Year)
-                year = (short)DateTime.Now.Year;
+                year = DateTime.Now.Year;
 
             if (month > 12)
                 month = 12;
 
             if (month < 1)
-                month = 1;
+                month = DateTime.Now.Month;
 
             int DaysInMonth = DateTime.DaysInMonth(year, month);
             if (days > DaysInMonth)
                 days = DaysInMonth;
+
+            DateTime UserData = new DateTime(year, month, days);
+            DateTime CurrentData = DateTime.Now;
+            if (UserData < CurrentData)
+            {
+                DateTime NewData = CurrentData.AddDays(1);
+                year = NewData.Year;
+                month = NewData.Month;
+                days = NewData.Day;
+
+                Console.WriteLine("Voçê digitou uma data menor que a data atual");
+                Console.WriteLine("Vamos calcular quando tempo falta para amanhã!");
+                Console.WriteLine($"{days}/{month}/{year}");
+
+                System.Threading.Thread.Sleep(5000);
+                CalculateTime(days, month, year);
+                return;
+            }
 
             CalculateTime(days, month, year);
         }
