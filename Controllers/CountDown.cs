@@ -150,7 +150,7 @@ namespace Stopwatch_With_Csharp.Controllers
                 month = NewData.Month;
                 days = NewData.Day;
 
-                Console.WriteLine("Voçê digitou uma data menor que a data atual");
+                Console.WriteLine("Você digitou uma data menor que a data atual");
                 Console.WriteLine("Vamos calcular quando tempo falta para amanhã!");
                 Console.WriteLine($"{days}/{month}/{year}");
 
